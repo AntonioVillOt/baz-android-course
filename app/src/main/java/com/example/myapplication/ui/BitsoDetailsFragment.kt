@@ -24,5 +24,48 @@ class BitsoDetailsFragment : Fragment(R.layout.fragment_bitso_details) {
         binding.maxPrice.text = args.maxPrice
         binding.maxAmount.text = args.maxAmount
         binding.minAmount.text = args.minAmount
+
+        when(binding.txtBitsoTitle.text) {
+            "BTC_MXN" -> Glide.with(requireContext()).load(R.drawable.bitcoin).centerCrop()
+                .into(binding.imgBitcoin)
+            "ETH_BTC" -> Glide.with(requireContext()).load(R.drawable.eth_btc).centerCrop()
+                .into(binding.imgBitcoin)
+            "ETH_MXN" -> Glide.with(requireContext()).load(R.drawable.eth).centerCrop()
+                .into(binding.imgBitcoin)
+            "XRP_BTC" -> Glide.with(requireContext()).load(R.drawable.xrp).centerCrop()
+                .into(binding.imgBitcoin)
+            "XPR_MXN" -> Glide.with(requireContext()).load(R.drawable.xrp).centerCrop()
+                .into(binding.imgBitcoin)
+            "LTC_BTC" -> Glide.with(requireContext()).load(R.drawable.ltc).centerCrop()
+                .into(binding.imgBitcoin)
+            "LYC_MXN" -> Glide.with(requireContext()).load(R.drawable.ltc).centerCrop()
+                .into(binding.imgBitcoin)
+            "BCH_BTC" -> Glide.with(requireContext()).load(R.drawable.bch).centerCrop()
+                .into(binding.imgBitcoin)
+            "BCH_MXN" -> Glide.with(requireContext()).load(R.drawable.bch).centerCrop()
+                .into(binding.imgBitcoin)
+            "TUSD_BTC" -> Glide.with(requireContext()).load(R.drawable.tusd).centerCrop()
+                .into(binding.imgBitcoin)
+            "TUSD_MXN" -> Glide.with(requireContext()).load(R.drawable.bitcoin).centerCrop()
+                .into(binding.imgBitcoin)
+            "MANA_BTC" -> Glide.with(requireContext()).load(R.drawable.eth_btc).centerCrop()
+                .into(binding.imgBitcoin)
+            "MANA_MXN" -> Glide.with(requireContext()).load(R.drawable.eth).centerCrop()
+                .into(binding.imgBitcoin)
+            "BAT_BTC" -> Glide.with(requireContext()).load(R.drawable.xrp).centerCrop()
+                .into(binding.imgBitcoin)
+            "BAT_MXN" -> Glide.with(requireContext()).load(R.drawable.xrp).centerCrop()
+                .into(binding.imgBitcoin)
+            "BTC_ARS" -> Glide.with(requireContext()).load(R.drawable.ltc).centerCrop()
+                .into(binding.imgBitcoin)
+            "BTC_DAI" -> Glide.with(requireContext()).load(R.drawable.ltc).centerCrop()
+                .into(binding.imgBitcoin)
+            "DAI_MXN" -> Glide.with(requireContext()).load(R.drawable.bch).centerCrop()
+                .into(binding.imgBitcoin)
+            "BTC_MXN" -> Glide.with(requireContext()).load(R.drawable.bch).centerCrop()
+                .into(binding.imgBitcoin)
+            "XRP_USD" -> Glide.with(requireContext()).load(R.drawable.tusd).centerCrop()
+                .into(binding.imgBitcoin)
+        }
     }
 }

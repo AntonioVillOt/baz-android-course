@@ -3,9 +3,9 @@ package com.example.myapplication.repository
 import com.example.myapplication.data.model.BookResponse
 import com.example.myapplication.data.model.OrderBooksModel
 import com.example.myapplication.data.model.TickerPayloadResponse
-import com.example.myapplication.data.remote.BitsoDataSource
+import com.example.myapplication.data.remote.RemoteBitsoDataSource
 
-class BitsoRepositoryImpl(private  val dataSource: BitsoDataSource): BitsoRepository {
+class BitsoRepositoryImpl(private  val dataSource: RemoteBitsoDataSource): BitsoRepository {
 
     override suspend fun getTicker(): TickerPayloadResponse = dataSource.getTicker()
 

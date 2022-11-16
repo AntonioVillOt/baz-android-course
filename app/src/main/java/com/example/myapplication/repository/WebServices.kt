@@ -5,10 +5,14 @@ import com.example.myapplication.data.model.BookResponse
 import com.example.myapplication.data.model.OrderBooksModel
 import com.example.myapplication.data.model.TickerPayloadResponse
 import com.google.gson.GsonBuilder
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+
+
 
 interface WebService {
 
@@ -24,12 +28,16 @@ interface WebService {
     suspend fun getAvailableBook(@Query("api_key") apiKey: String): BookResponse
 }
 
+private val logger: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+private val okHttp: OkHttpClient.Builder = OkHttpClient.Builder().addInterceptor(logger)
+
 
 object RetrofitClient{
     val webservice by lazy{
         Retrofit.Builder()
             .baseUrl(AppConstants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+            .client(okHttp.build())
             .build().create(WebService::class.java)
     }
 }

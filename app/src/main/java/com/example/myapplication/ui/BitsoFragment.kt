@@ -12,7 +12,7 @@ import com.example.myapplication.adapter.BitsoAdapter
 import com.example.myapplication.adapter.BitsoConcatAdapter
 import com.example.myapplication.core.Resource
 import com.example.myapplication.data.model.Book
-import com.example.myapplication.data.remote.BitsoDataSource
+import com.example.myapplication.data.remote.RemoteBitsoDataSource
 import com.example.myapplication.databinding.FragmentBitsoBinding
 import com.example.myapplication.presentation.BitsoViewModel
 import com.example.myapplication.presentation.BitsoViewModelFactory
@@ -26,7 +26,7 @@ class BitsoFragment : Fragment(R.layout.fragment_bitso), BitsoAdapter.OnBitsoCli
     private val viewModel by viewModels<BitsoViewModel> {
         BitsoViewModelFactory(
             BitsoRepositoryImpl(
-                BitsoDataSource(RetrofitClient.webservice)
+                RemoteBitsoDataSource(RetrofitClient.webservice)
             )
         )
     }

@@ -6,7 +6,7 @@ import com.example.myapplication.data.model.OrderBooksModel
 import com.example.myapplication.data.model.TickerPayloadResponse
 import com.example.myapplication.repository.WebService
 
-class BitsoDataSource(private val webService: WebService) {
+class RemoteBitsoDataSource(private val webService: WebService) {
 
 
     suspend fun getTicker(): TickerPayloadResponse {
