@@ -8,4 +8,7 @@
     <string name="txt_price">Price:</string>
     <string name="txt_amount">Amount:</string>
     <string name="txt_type">Type: </string>
+    <string name="txt_list">Lista de Bitcoin</string>
+    <string name="txt_description">Description</string>
+    <string name="txt_value">100.00</string>
 </resources>

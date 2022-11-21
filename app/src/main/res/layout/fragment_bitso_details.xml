@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -16,7 +16,8 @@
         <ImageView
             android:id="@+id/img_background"
             android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            android:layout_height="250dp"
+            android:contentDescription="@string/txt_description" />
 
         <View
             android:layout_width="match_parent"
@@ -39,6 +40,7 @@
             android:id="@+id/img_bitcoin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/txt_description"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
@@ -49,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="400dp"/>
+        app:layout_constraintGuide_begin="400dp" />
 
     <TextView
         android:id="@+id/txt_bitso_title"
@@ -68,20 +70,20 @@
         tools:text="Bitcoin" />
 
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:layout_marginStart="16dp"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/cardView"
         app:layout_constraintTop_toBottomOf="@id/frameLayout">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/txt_description" />
 
     </LinearLayout>
 
@@ -118,9 +120,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:text="100.00"
-        android:textColor="@color/black"
+        android:text="@string/txt_value"
         android:textAlignment="center"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_book_title"
         app:layout_constraintTop_toBottomOf="@id/txt_binds"
@@ -134,7 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="40dp"
-        android:text="100.00"
+        android:text="@string/txt_value"
         android:textAlignment="center"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/txt_price"
@@ -145,7 +147,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
-        android:text="100.00"
+        android:text="@string/txt_value"
         android:textAlignment="center"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -160,7 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="76dp"
-        android:text="100.00"
+        android:text="@string/txt_value"
         android:textAlignment="center"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
-        android:text="400.0"
+        android:text="@string/txt_value"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,8 +187,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="@string/txt_type"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txt_book_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
@@ -199,8 +201,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="40dp"
         android:text="@string/txt_book"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txt_price"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -211,8 +213,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="108dp"
         android:text="@string/txt_price"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -223,8 +225,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
         android:text="@string/txt_amount"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_price"
@@ -235,7 +237,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:text="100.00"
+        android:text="@string/txt_value"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_amount"
@@ -249,8 +251,8 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="272dp"
         android:text="@string/txt_max_price"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -261,8 +263,8 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="28dp"
         android:text="@string/txt_min_price"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/txt_amount_title_max" />
 
@@ -272,7 +274,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="272dp"
-        android:text="100.00"
+        android:text="@string/txt_value"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.032"
@@ -285,7 +287,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
-        android:text="100.00"
+        android:text="@string/txt_value"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.131"
