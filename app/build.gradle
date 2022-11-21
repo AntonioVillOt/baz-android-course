@@ -81,8 +81,20 @@ dependencies {
     kapt("androidx.room:room-compiler:2.4.3")
     implementation("androidx.room:room-ktx:2.4.3")
 
-
+    //okHttp
     implementation("com.squareup.okhttp3:logging-interceptor:3.9.0")
+
+    //RxJava
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
+
+    //Test
+    testImplementation 'io.mockk:mockk:1.12.2'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'com.google.truth:truth:1.1.3'
+    testImplementation 'org.mokito:mokito-core:4.0.0'
+    testImplementation 'org.mokito.kotlin:mokito-kotlin:4.0.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

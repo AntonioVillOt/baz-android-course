@@ -8,7 +8,7 @@ import com.example.myapplication.model.BookEntity
 import com.example.myapplication.provider.local.BookDao
 
 @Database(entities = [BookEntity::class], version = 1)
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun bookDao(): BookDao
 
@@ -24,10 +24,8 @@ abstract class AppDatabase: RoomDatabase() {
             return INSTANCE!!
         }
 
-        fun destroyInstance(){
+        fun destroyInstance() {
             INSTANCE = null
         }
-
     }
-
 }

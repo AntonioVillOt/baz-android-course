@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.util.core.BaseConcatHolder
 import com.example.myapplication.databinding.ListBitsoBinding
 
-class BitsoConcatAdapter(private val bitsoAdapter: BitsoAdapter): RecyclerView.Adapter<BaseConcatHolder<*>>() {
+class BitsoConcatAdapter(private val bitsoAdapter: BitsoAdapter) :
+    RecyclerView.Adapter<BaseConcatHolder<*>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseConcatHolder<*> {
-        val itemBinding = ListBitsoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemBinding =
+            ListBitsoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ConcatViewHolder(itemBinding)
 
     }
@@ -23,7 +25,8 @@ class BitsoConcatAdapter(private val bitsoAdapter: BitsoAdapter): RecyclerView.A
 
     override fun getItemCount(): Int = 1
 
-    private inner class ConcatViewHolder(val binding: ListBitsoBinding): BaseConcatHolder<BitsoAdapter>(binding.root){
+    private inner class ConcatViewHolder(val binding: ListBitsoBinding) :
+        BaseConcatHolder<BitsoAdapter>(binding.root) {
         override fun bind(adapter: BitsoAdapter) {
             binding.rvAvailable.adapter = adapter
         }

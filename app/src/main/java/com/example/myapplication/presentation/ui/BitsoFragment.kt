@@ -14,10 +14,15 @@ import com.example.myapplication.util.core.Resource
 import com.example.myapplication.model.Book
 import com.example.myapplication.provider.remote.RemoteBitsoDataSource
 import com.example.myapplication.databinding.FragmentBitsoBinding
-import com.example.myapplication.presentation.BitsoViewModel
-import com.example.myapplication.presentation.BitsoViewModelFactory
-import com.example.myapplication.repository.BitsoRepositoryImpl
-import com.example.myapplication.repository.RetrofitClient
+import com.example.myapplication.model.BitsoViewModel
+import com.example.myapplication.model.BitsoViewModelFactory
+import com.example.myapplication.model.BitsoViewModelFactoryRx
+import com.example.myapplication.provider.local.LocalBitsoDataSource
+import com.example.myapplication.provider.remote.local.AppDatabase
+import com.example.myapplication.repository.BitsoRepositoryImplRetrofit
+import com.example.myapplication.repository.BitsoRepositoryImplRx
+import com.example.myapplication.service.RetrofitClient
+
 
 class BitsoFragment : Fragment(R.layout.fragment_bitso), BitsoAdapter.OnBitsoClickListener {
 
@@ -25,8 +30,19 @@ class BitsoFragment : Fragment(R.layout.fragment_bitso), BitsoAdapter.OnBitsoCli
     private lateinit var binding: FragmentBitsoBinding
     private val viewModel by viewModels<BitsoViewModel> {
         BitsoViewModelFactory(
-            BitsoRepositoryImpl(
-                RemoteBitsoDataSource(RetrofitClient.webservice)
+            BitsoRepositoryImplRetrofit(
+                RemoteBitsoDataSource(
+                    RetrofitClient.webservice
+                ),
+                LocalBitsoDataSource(AppDatabase.getDatabase(requireContext()).bookDao())
+            )
+        )
+    }
+
+    private val viewModelRx by viewModels<BitsoViewModel> {
+        BitsoViewModelFactoryRx(
+            BitsoRepositoryImplRx(
+                LocalBitsoDataSource(AppDatabase.getDatabase(requireContext()).bookDao())
             )
         )
     }
@@ -37,15 +53,72 @@ class BitsoFragment : Fragment(R.layout.fragment_bitso), BitsoAdapter.OnBitsoCli
         concatAdapter = ConcatAdapter()
 
         viewModel.fetchAvailableBook().observe(viewLifecycleOwner, Observer { result ->
-            when(result){
+            when (result) {
                 is Resource.Loading -> {
                     binding.progressVar.visibility = View.VISIBLE
                 }
                 is Resource.Success -> {
                     binding.progressVar.visibility = View.GONE
                     concatAdapter.apply {
-                        addAdapter(0, BitsoConcatAdapter(BitsoAdapter(
-                            result.data.results,this@BitsoFragment))
+                        addAdapter(
+                            0, BitsoConcatAdapter(
+                                BitsoAdapter(
+                                    result.data.results, this@BitsoFragment
+                                )
+                            )
+                        )
+                    }
+                    binding.rvBitso.adapter = concatAdapter
+                }
+                is Resource.Failure -> {
+                    binding.progressVar.visibility = View.GONE
+                }
+            }
+        })
+
+        viewModel.fetchOrderBook().observe(viewLifecycleOwner, Observer { result ->
+            when (result) {
+                is Resource.Loading -> {
+                    binding.progressVar.visibility = View.VISIBLE
+                }
+                is Resource.Success -> {
+                    binding.progressVar.visibility = View.GONE
+                    concatAdapter.apply {
+                        addAdapter(
+                            1,
+                            BitsoConcatAdapter(
+                                BitsoAdapter(
+                                    result.data.results,
+                                    this@BitsoFragment
+                                )
+                            )
+                        )
+                    }
+                    binding.rvBitso.adapter = concatAdapter
+                }
+                is Resource.Failure -> {
+                    binding.progressVar.visibility = View.GONE
+                }
+            }
+
+        })
+
+        viewModel.fetchTicker().observe(viewLifecycleOwner, Observer { result ->
+            when (result) {
+                is Resource.Loading -> {
+                    binding.progressVar.visibility = View.VISIBLE
+                }
+                is Resource.Success -> {
+                    binding.progressVar.visibility = View.GONE
+                    concatAdapter.apply {
+                        addAdapter(
+                            2,
+                            BitsoConcatAdapter(
+                                BitsoAdapter(
+                                    result.data.results,
+                                    this@BitsoFragment
+                                )
+                            )
                         )
                     }
                     binding.rvBitso.adapter = concatAdapter
@@ -68,7 +141,7 @@ class BitsoFragment : Fragment(R.layout.fragment_bitso), BitsoAdapter.OnBitsoCli
             book.maximumValue.toString(),
             book.minimumValue.toString()
 
-            )
+        )
         findNavController().navigate(action)
     }
 }
