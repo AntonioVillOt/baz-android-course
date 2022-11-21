@@ -1,9 +1,9 @@
-package com.example.myapplication.data.remote
+package com.example.myapplication.provider.remote
 
-import com.example.myapplication.application.AppConstants
-import com.example.myapplication.data.model.BookResponse
-import com.example.myapplication.data.model.OrderBooksModel
-import com.example.myapplication.data.model.TickerPayloadResponse
+import com.example.myapplication.util.AppConstants
+import com.example.myapplication.model.BookResponse
+import com.example.myapplication.model.OrderBooksModel
+import com.example.myapplication.model.TickerPayloadResponse
 import com.example.myapplication.repository.WebService
 
 class RemoteBitsoDataSource(private val webService: WebService) {

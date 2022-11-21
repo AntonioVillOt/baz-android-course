@@ -1,8 +1,8 @@
-package com.example.myapplication.data.local
+package com.example.myapplication.provider.local
 
-import com.example.myapplication.data.model.BookEntity
-import com.example.myapplication.data.model.BookResponse
-import com.example.myapplication.data.model.toBookList
+import com.example.myapplication.model.BookEntity
+import com.example.myapplication.model.BookResponse
+import com.example.myapplication.model.toBookList
 
 class LocalBitsoDataSource(private val bookDao: BookDao) {
 
@@ -10,11 +10,11 @@ class LocalBitsoDataSource(private val bookDao: BookDao) {
         return bookDao.getALLBooks().filter{it.book_type == "availablebook"}.toBookList()
     }
 
-    suspend fun  getOrderBooks(): BookResponse{
+    suspend fun  getOrderBooks(): BookResponse {
         return bookDao.getALLBooks().filter{it.book_type == "orderbook"}.toBookList()
     }
 
-    suspend fun getTicker(): BookResponse{
+    suspend fun getTicker(): BookResponse {
         return bookDao.getALLBooks().filter{it.book_type == "ticker"}.toBookList()
     }
 

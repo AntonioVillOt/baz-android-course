@@ -1,4 +1,4 @@
-package com.example.myapplication.adapter
+package com.example.myapplication.presentation.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
-import com.example.myapplication.core.BaseViewHolder
-import com.example.myapplication.data.model.Book
+import com.example.myapplication.util.core.BaseViewHolder
+import com.example.myapplication.model.Book
 import com.example.myapplication.databinding.ItemBitsoBinding
 
 class BitsoAdapter(private  val bitsoList: List<Book>,

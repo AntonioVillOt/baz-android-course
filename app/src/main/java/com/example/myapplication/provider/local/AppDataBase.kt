@@ -1,10 +1,11 @@
-package com.example.myapplication.data.local
+package com.example.myapplication.provider.remote.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.myapplication.data.model.BookEntity
+import com.example.myapplication.model.BookEntity
+import com.example.myapplication.provider.local.BookDao
 
 @Database(entities = [BookEntity::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
@@ -14,7 +15,7 @@ abstract class AppDatabase: RoomDatabase() {
     companion object {
         private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): AppDatabase{
+        fun getDatabase(context: Context): AppDatabase {
             INSTANCE = INSTANCE ?: Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,

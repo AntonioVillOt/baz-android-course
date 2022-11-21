@@ -1,4 +1,4 @@
-package com.example.myapplication.core
+package com.example.myapplication.util
 
 import kotlinx.coroutines.coroutineScope
 import java.io.IOException

@@ -1,9 +1,9 @@
 package com.example.myapplication.repository
 
-import com.example.myapplication.data.model.BookResponse
-import com.example.myapplication.data.model.OrderBooksModel
-import com.example.myapplication.data.model.TickerPayloadResponse
-import com.example.myapplication.data.remote.RemoteBitsoDataSource
+import com.example.myapplication.model.BookResponse
+import com.example.myapplication.model.OrderBooksModel
+import com.example.myapplication.model.TickerPayloadResponse
+import com.example.myapplication.provider.remote.RemoteBitsoDataSource
 
 class BitsoRepositoryImpl(private  val dataSource: RemoteBitsoDataSource): BitsoRepository {
 

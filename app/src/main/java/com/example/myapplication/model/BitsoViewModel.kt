@@ -3,7 +3,7 @@ package com.example.myapplication.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
-import com.example.myapplication.core.Resource
+import com.example.myapplication.util.core.Resource
 import com.example.myapplication.repository.BitsoRepository
 import kotlinx.coroutines.Dispatchers
 

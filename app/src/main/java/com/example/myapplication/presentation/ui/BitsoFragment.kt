@@ -1,4 +1,4 @@
-package com.example.myapplication.ui
+package com.example.myapplication.presentation.ui
 
 import android.os.Bundle
 import android.view.View
@@ -8,11 +8,11 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.example.myapplication.R
-import com.example.myapplication.adapter.BitsoAdapter
-import com.example.myapplication.adapter.BitsoConcatAdapter
-import com.example.myapplication.core.Resource
-import com.example.myapplication.data.model.Book
-import com.example.myapplication.data.remote.RemoteBitsoDataSource
+import com.example.myapplication.presentation.adapter.BitsoAdapter
+import com.example.myapplication.presentation.adapter.BitsoConcatAdapter
+import com.example.myapplication.util.core.Resource
+import com.example.myapplication.model.Book
+import com.example.myapplication.provider.remote.RemoteBitsoDataSource
 import com.example.myapplication.databinding.FragmentBitsoBinding
 import com.example.myapplication.presentation.BitsoViewModel
 import com.example.myapplication.presentation.BitsoViewModelFactory
@@ -45,7 +45,8 @@ class BitsoFragment : Fragment(R.layout.fragment_bitso), BitsoAdapter.OnBitsoCli
                     binding.progressVar.visibility = View.GONE
                     concatAdapter.apply {
                         addAdapter(0, BitsoConcatAdapter(BitsoAdapter(
-                            result.data.results,this@BitsoFragment)))
+                            result.data.results,this@BitsoFragment))
+                        )
                     }
                     binding.rvBitso.adapter = concatAdapter
                 }

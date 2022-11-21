@@ -1,9 +1,9 @@
 package com.example.myapplication.repository
 
-import com.example.myapplication.application.AppConstants
-import com.example.myapplication.data.model.BookResponse
-import com.example.myapplication.data.model.OrderBooksModel
-import com.example.myapplication.data.model.TickerPayloadResponse
+import com.example.myapplication.util.AppConstants
+import com.example.myapplication.model.BookResponse
+import com.example.myapplication.model.OrderBooksModel
+import com.example.myapplication.model.TickerPayloadResponse
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -1,9 +1,9 @@
-package com.example.myapplication.adapter
+package com.example.myapplication.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.core.BaseConcatHolder
+import com.example.myapplication.util.core.BaseConcatHolder
 import com.example.myapplication.databinding.ListBitsoBinding
 
 class BitsoConcatAdapter(private val bitsoAdapter: BitsoAdapter): RecyclerView.Adapter<BaseConcatHolder<*>>() {

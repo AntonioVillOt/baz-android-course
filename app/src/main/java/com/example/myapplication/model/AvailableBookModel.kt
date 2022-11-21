@@ -1,4 +1,4 @@
-package com.example.myapplication.data.model
+package com.example.myapplication.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -41,7 +41,7 @@ data class BookEntity(
     val book_type: String = ""
 )
 
-fun List<BookEntity>.toBookList(): BookResponse{
+fun List<BookEntity>.toBookList(): BookResponse {
     val resultList = mutableListOf<Book>()
     this.forEach{ bookEntity ->
         resultList.add(bookEntity.toBook())
