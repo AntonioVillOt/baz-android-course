@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Proyecto_bitcoin</string>
-    <string name="txt_max_price">Precio máximo: </string>
-    <string name="txt_min_price">Precio minimo: </string>
+    <string name="txt_max_price">Amount Max: </string>
+    <string name="txt_min_price">Amount Min: </string>
+    <string name="txt_ask">Ask</string>
+    <string name="txt_bind">Bind</string>
+    <string name="txt_book">Book:</string>
+    <string name="txt_price">Price:</string>
+    <string name="txt_amount">Amount:</string>
+    <string name="txt_type">Type: </string>
 </resources>

@@ -33,5 +33,11 @@
         <argument
             android:name="minAmount"
             app:argType="string" />
+        <argument
+            android:name="maxValue"
+            app:argType="string" />
+        <argument
+            android:name="minValue"
+            app:argType="string" />
     </fragment>
 </navigation>

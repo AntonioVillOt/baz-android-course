@@ -59,11 +59,13 @@ class BitsoFragment : Fragment(R.layout.fragment_bitso), BitsoAdapter.OnBitsoCli
     override fun onBitsoClick(book: Book) {
 
         val action = BitsoFragmentDirections.actionBitsoFragmentToBitsoDetailsFragment(
-            book.book.toString(),
+            book.book,
             book.maximumPrice.toString(),
             book.minimumPrice.toString(),
             book.maximumAmount.toString(),
             book.minimumAmount.toString(),
+            book.maximumValue.toString(),
+            book.minimumValue.toString()
 
             )
         findNavController().navigate(action)

@@ -20,10 +20,14 @@ class BitsoDetailsFragment : Fragment(R.layout.fragment_bitso_details) {
         Glide.with(requireContext()).load(R.drawable.syntetix).centerCrop().into(binding.imgBitcoin)
         Glide.with(requireContext()).load(R.drawable.bitcoinfondo).centerCrop().into(binding.imgBackground)
         binding.txtBitsoTitle.text = args.bitcoinTitle.uppercase()
-        binding.minPrice.text = args.minPrice
-        binding.maxPrice.text = args.maxPrice
-        binding.maxAmount.text = args.maxAmount
-        binding.minAmount.text = args.minAmount
+        binding.txtPriceMin.text = args.minPrice
+        binding.txtPriceMax.text = args.maxPrice
+        binding.amountAsks.text = args.maxAmount
+        binding.amountBinds.text = args.minAmount
+        binding.priceAsks.text = args.minValue
+        binding.priceBinds.text = args.maxValue
+        binding.bookAsks.text = args.bitcoinTitle
+        binding.bookBinds.text = args.bitcoinTitle
 
         when(binding.txtBitsoTitle.text) {
             "BTC_MXN" -> Glide.with(requireContext()).load(R.drawable.bitcoin).centerCrop()
@@ -61,8 +65,6 @@ class BitsoDetailsFragment : Fragment(R.layout.fragment_bitso_details) {
             "BTC_DAI" -> Glide.with(requireContext()).load(R.drawable.ltc).centerCrop()
                 .into(binding.imgBitcoin)
             "DAI_MXN" -> Glide.with(requireContext()).load(R.drawable.bch).centerCrop()
-                .into(binding.imgBitcoin)
-            "BTC_MXN" -> Glide.with(requireContext()).load(R.drawable.bch).centerCrop()
                 .into(binding.imgBitcoin)
             "XRP_USD" -> Glide.with(requireContext()).load(R.drawable.tusd).centerCrop()
                 .into(binding.imgBitcoin)
