@@ -7,6 +7,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentBitsoDetailsBinding
+import com.example.myapplication.util.changeUpperCase
 
 class BitsoDetailsFragment : Fragment(R.layout.fragment_bitso_details) {
 
@@ -19,7 +20,7 @@ class BitsoDetailsFragment : Fragment(R.layout.fragment_bitso_details) {
 
         Glide.with(requireContext()).load(R.drawable.syntetix).centerCrop().into(binding.imgBitcoin)
         Glide.with(requireContext()).load(R.drawable.bitcoinfondo).centerCrop().into(binding.imgBackground)
-        binding.txtBitsoTitle.text = args.bitcoinTitle.uppercase()
+        binding.txtBitsoTitle.text = args.bitcoinTitle.changeUpperCase()
         binding.txtPriceMin.text = args.minPrice
         binding.txtPriceMax.text = args.maxPrice
         binding.amountAsks.text = args.maxAmount
@@ -29,7 +30,7 @@ class BitsoDetailsFragment : Fragment(R.layout.fragment_bitso_details) {
         binding.bookAsks.text = args.bitcoinTitle
         binding.bookBinds.text = args.bitcoinTitle
 
-        when(binding.txtBitsoTitle.text) {
+        when(binding.txtBitsoTitle.text){
             "BTC_MXN" -> Glide.with(requireContext()).load(R.drawable.bitcoin).centerCrop()
                 .into(binding.imgBitcoin)
             "ETH_BTC" -> Glide.with(requireContext()).load(R.drawable.eth_btc).centerCrop()

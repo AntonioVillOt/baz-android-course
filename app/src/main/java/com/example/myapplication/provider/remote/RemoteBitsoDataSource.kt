@@ -3,27 +3,32 @@ package com.example.myapplication.provider.remote
 import com.example.myapplication.util.AppConstants
 import com.example.myapplication.model.BookResponse
 import com.example.myapplication.model.OrderBooksResponse
-import com.example.myapplication.model.TickerResponse
 import com.example.myapplication.repository.WebService
-import retrofit2.Retrofit
+import com.example.myapplication.util.isNull
+import io.reactivex.rxjava3.core.Single
+
 
 class RemoteBitsoDataSource(private val webService: WebService) {
-
-
-    suspend fun getTicker(): BookResponse {
-        return webService.getAvailableBook(AppConstants.API_KEY)
-    }
-
-    suspend fun getOrderBook(): BookResponse {
-        return webService.getAvailableBook(AppConstants.API_KEY)
-    }
 
     suspend fun getAvailableBook(): BookResponse {
         return webService.getAvailableBook(AppConstants.API_KEY)
     }
 
-}
+    suspend fun getTicker(): BookResponse {
+        if (getTicker().results.isNull()) {
+            return getTicker()
+        } else {
+            return webService.getAvailableBook(AppConstants.API_KEY)
+        }
+    }
 
-class RemoteBitsoDataSourceRx(private val retro: Retrofit) {
+    fun getOrderBook(): Single<List<OrderBooksResponse>> {
+
+        if (getOrderBook().isNull()) {
+            return getOrderBook()
+        } else {
+            return webService.getOrderBook(AppConstants.API_KEY)
+        }
+    }
 
 }
