@@ -6,7 +6,7 @@
     app:startDestination="@id/bitsoFragment">
     <fragment
         android:id="@+id/bitsoFragment"
-        android:name="com.example.myapplication.ui.BitsoFragment"
+        android:name="com.example.myapplication.presentation.ui.BitsoFragment"
         android:label="fragment_bitso"
         tools:layout="@layout/fragment_bitso" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/bitsoDetailsFragment"
-        android:name="com.example.myapplication.ui.BitsoDetailsFragment"
+        android:name="com.example.myapplication.presentation.ui.BitsoDetailsFragment"
         android:label="fragment_bitso_details"
         tools:layout="@layout/fragment_bitso_details" >
         <argument
@@ -32,6 +32,12 @@
             app:argType="string" />
         <argument
             android:name="minAmount"
+            app:argType="string" />
+        <argument
+            android:name="maxValue"
+            app:argType="string" />
+        <argument
+            android:name="minValue"
             app:argType="string" />
     </fragment>
 </navigation>
